@@ -19,7 +19,7 @@ if os.path.isfile('./Pipfile'):
     else:
         run(['pipenv', 'install', '--dev'])
 else:
-    run(['pipenv', 'install', '--python', f"{PYENV_PREFIX}/bin/python", 'ipython', 'ipykernel', 'pandas', 'matplotlib', 'notebook', 'jupyterlab', 'pyarrow', 'altair', 'jupytext', 'jupyterlab_templates', 'itables', 'ap-altair-theme'])
+    run(['pipenv', 'install', '--python', f"{PYENV_PREFIX}/bin/python", 'ipython', 'ipykernel', 'packaging', 'pandas', 'matplotlib', 'notebook', 'jupyterlab', 'pyarrow', 'altair', 'jupytext', 'jupyterlab_templates', 'itables', 'ap-altair-theme'])
     ## Add this script to the Pipfile, along with the rmarkdown export script
     with open('Pipfile', 'a') as pipfile:
         pipfile.write('\n[scripts]\nexport_rmarkdown = "Rscript .export_rmarkdown.R"')
@@ -35,11 +35,11 @@ with open ('.env', 'w') as env_fi:
 with open ('.Renviron', 'w') as Renv_fi:
     Renv_fi.write(f"RETICULATE_PYTHON={RETICULATE_PYTHON}")
 
-# Generate ipynb for every markdown file in analysis
-run(['pipenv', 'run', 'jupytext', '--set-formats', 'Rmd,ipynb', 'analysis/*.Rmd'])
-# Install jupyter template extension and enable the template server
-run(['mkdir', f"{VENV_DIR}/share/jupyter/notebook_templates"])
-for path in TEMPLATE_PATHS:
-    run(['cp', '-r', path, f"{VENV_DIR}/share/jupyter/notebook_templates/"])
+# # Generate ipynb for every markdown file in analysis
+# run(['pipenv', 'run', 'jupytext', '--set-formats', 'Rmd,ipynb', 'analysis/*.Rmd'])
+# # Install jupyter template extension and enable the template server
+# run(['mkdir', f"{VENV_DIR}/share/jupyter/notebook_templates"])
+# for path in TEMPLATE_PATHS:
+#     run(['cp', '-r', path, f"{VENV_DIR}/share/jupyter/notebook_templates/"])
 # Git solution for changing cwd in analysis files to root of project
 run(['pipenv', 'run', 'bash', '.set_kernel_path.sh'])
