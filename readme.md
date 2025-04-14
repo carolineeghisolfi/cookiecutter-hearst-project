@@ -7,51 +7,43 @@ This is a project template powered by [Cookiecutter](https://github.com/cookiecu
 ```
 .
 ├── README.md
-├── analysis
-│   └── archive
+├── code
+│   └── analysis
+│   └── etl
+│   └── scratch
 ├── data
-│   ├── documentation
-│   ├── html_reports
-│   ├── manual
+│   ├── source
 │   ├── processed
 │   ├── public
-│   └── source
-├── etl
-├── publish
-└── scratch
+│   └── archive
+├── docs
+└── viz
 ```
 
 - `README.md`
   - Project-specific readme with boilerplate for data projects.
-- `analysis`
-  - This is where we keep all of our jupyter ipython notebooks that contain analysis for the project.
+- `code`
+  - `code/analysis`: This is where we keep all of our jupyter ipython notebooks that contain analysis for the project.
     - Notebooks in this folder can ingest data from either `data/source` (if that data comes from the source in a workable format) or `data/processed` (if the data required some prep).
-    - Dataframes from analysis notebooks should be written out to `data/processed`
-  - `analysis/archive`: Notebooks that leave the scope of the project but should also remain in the project history will be placed here.
+    - Dataframes from analysis notebooks are written out to `data/processed`
+  - `code/etl`
+    - This is where we keep python scripts involved with collecting data and prepping it for analysis.
+    - These files should be scripts, they should not be jupyter notebooks.
+  - `scratch`: This directory contains output that will not be used in the project in its final form.
   - Note that only `.Rmd` linked to `.ipynb` via `Jupytext` are commited, `.ipynb` are in the `.gitignore` because `.ipynb` metadata frequently disrupts version control whenever a notebook is opened or interacted with, while `.Rmd` files only keep track of code.
 - `data`
   - This is the directory used with our `datakit-data` plugin.
-  - `data/documentation`
-    - Documentation on data files should go here - data dictionaries, manuals, interview notes.
-  - `data/html_reports`
-    - Contains rendered html of our analysis notebooks, the results of calling `pipenv run export_rmarkdown` on a notebook.
-  - `data/manual`
-    - Contains data that has been manually altered (e.g. excel workbooks with inconsistent string errors requiring eyes on every row).
+  - `data/source`: contains raw, untouched data.
   - `data/processed`
     - Contains data that has either been transformed from an `etl` script or output from an `analysis` jupyter notebook.
-    - Data that has been transformed from an `etl` script will follow a naming convention: `etl_{file_name}.[csv,json...]`
+    - Data that has been transformed from an `etl` script follow a naming convention: `etl_{file_name}.[csv,json...]`
   - `data/public`
     - Public-facing data files go here - data files which are 'live'.
-  - `data/source`: contains raw, untouched data.
-- `etl`
-  - This is where we keep python scripts involved with collecting data and prepping it for analysis.
-  - These files should be scripts, they should not be jupyter notebooks.
-- `publish`
-  - This directory holds all the documents in the project that will be public facing (e.g. data.world documents).
-- `scratch`
-  - This directory contains output that will not be used in the project in its final form.
-  - Common cases are filtered tables or quick visualizations for reporters
-  - This directory is not git tracked.
+  - `data/archive`: Data files that leave the scope of the project but should also remain in the project history are placed here.
+- `docs`
+  - Documentation on data files goes here - data dictionaries, manuals, interview notes.
+- `viz`
+  - This directory holds visualizations made for the project.
 
 **Our `.gitignore`**
 
