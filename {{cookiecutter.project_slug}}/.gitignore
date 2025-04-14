@@ -5,8 +5,17 @@
 .DS_Store
 .ipynb_checkpoints
 
-code/scratch/*.ipynb
-!code/scratch/.gitkeep
+analysis/*.ipynb
+analysis/archive/*.ipynb
+!analysis/notebook_templates/*.ipynb
 
-data/*
-!data/.gitkeep
+data/
+!data/source/.gitkeep
+!data/manual/.gitkeep
+!data/processed/.gitkeep
+!data/html_reports/.gitkeep
+!data/public/.gitkeep
+!data/documentation/.gitkeep
+
+scratch/
+!scratch/.gitkeep
