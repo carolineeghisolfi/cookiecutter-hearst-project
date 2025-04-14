@@ -1,11 +1,10 @@
 {
-  "full_name": "Firstname Lastname",
+  "full_name": "",
   "email": "",
   "project_name": "New Project",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "project_short_description": "",
   "_copy_without_render": [
-    "analysis/*",
-    ".nbconvert_templates/*"
+    "analysis/*"
   ]
 }

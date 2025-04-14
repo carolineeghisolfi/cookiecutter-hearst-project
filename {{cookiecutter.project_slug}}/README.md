@@ -3,10 +3,8 @@
 {{ cookiecutter.project_short_description }}
 {% endif %}
 {% if cookiecutter.full_name %}
-
 *Created by {{ cookiecutter.full_name }} (<{{ cookiecutter.email }}>)*
 {% endif %}
-
 
 ### Project structure
 
@@ -61,7 +59,7 @@ To replicate the code in this repo, run the project's `/code/etl` and `/code/ana
 
 Run `datakit data pull` to retrieve the data files. You can find more information about each file below. 
 
-`/source/my-awesome-data-file.csv`
+`/source/example.csv`
 - <u>Source info</u> (name, url and contact info): ...
 - <u>Data info</u> (geography, timeframe, etc.): ...
 - <u>Key data fields</u>: ...
