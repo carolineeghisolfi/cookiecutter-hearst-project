@@ -79,24 +79,24 @@ These steps assume configuration for [datakit-project](https://github.com/associ
 
 ```
 cd path/to/.cookiecutters
-git clone git@github.com/associatedpress/cookiecutter-python-project.git
+git clone git@github.com/associatedpress/cookiecutter-hearst-project.git
 ```
 
 - Now, when starting a new project with `datakit-project`, reference the cookiecutter in your filesystem. This creates a `pipenv` virtual environment and a ipython kernel for jupyter notebooks that will have the name of the `project_slug`.
 
 ```
-datakit project create --template path/to/.cookiecutters/cookiecutter-python-project`
+datakit project create --template path/to/.cookiecutters/cookiecutter-hearst-project`
 ```
 
 If you'd like to avoid specifying the template each time, you can edit `~/.datakit/plugins/datakit-project/config.json` to use this template by default:
 
 ```
- {"default_template": "/path/to/.cookiecutters/cookiecutter-python-project"}
+ {"default_template": "/path/to/.cookiecutters/cookiecutter-hearst-project"}
 ```
 
 ### Full virtual environment setup. From package management to rendering analyses.
 
-This python template should get AP data journalists set up quickly with a virtual environment, allowing them to clone a project and quickly install all the packages required to run ETL and analysis files. 
+This python template should get data journalists set up quickly with a virtual environment, allowing them to clone a project and quickly install all the packages required to run ETL and analysis files. 
 
 **Setup**
 
@@ -111,7 +111,7 @@ This python template should get AP data journalists set up quickly with a virtua
 **Workflow**
 
 *Starting a new project*
-- `datakit project create` will kick off the typical datakit cookiecutter project creation, but this template runs an additional script after constructing the AP analysis folder tree. Briefly, this script sets up the project for pipenv and installs our typical analysis packages. You can find this script in your project: `.first_install.py`. A more detailed description for this script will come with an update to the README.
+- `datakit project create` will kick off the typical datakit cookiecutter project creation, but this template runs an additional script after constructing the analysis folder tree. Briefly, this script sets up the project for pipenv and installs our typical analysis packages. You can find this script in your project: `.first_install.py`. A more detailed description for this script will come with an update to the README.
 
 - Once the project is created we `cd` into it and run `pipenv shell` Before running `jupyter lab`. Or, we run `pipenv run jupyter lab`. It's up to you which commands to use here. Some people like to have a subshell running via `pipenv shell`, knowing that any command they run in that open subshell will make use of the pipenv environment. Other people like to type in the command every time they want to use the virtual environment with `pipenv run [terminal command]`.
 
