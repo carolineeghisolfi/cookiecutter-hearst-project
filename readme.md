@@ -79,7 +79,7 @@ These steps assume configuration for [datakit-project](https://github.com/associ
 
 ```
 cd path/to/.cookiecutters
-git clone git@github.com/carolineeghisolfi/cookiecutter-hearst-project.git
+git clone git@github.com:carolineeghisolfi/cookiecutter-hearst-project.git
 ```
 
 - Now, when starting a new project with `datakit-project`, reference the cookiecutter in your filesystem. This creates a `pipenv` virtual environment and a ipython kernel for jupyter notebooks that will have the name of the `project_slug`.
